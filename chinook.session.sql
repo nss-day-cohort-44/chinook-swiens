@@ -4,5 +4,8 @@
 -- FROM Customer 
 -- WHERE Country NOT IN ("USA")
 
-brazil_customers.sql: Provide a query only showing the Customers from Brazil.
+-- brazil_customers.sql: Provide a query only showing the Customers from Brazil.
+SELECT CustomerId, FirstName, LastName, Country
+FROM Customer
+WHERE Country IN ("Brazil")
 
