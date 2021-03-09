@@ -32,5 +32,33 @@
 -- JOIN Invoice 
 --     ON Customer.CustomerId = Invoice.CustomerId
 
+invoice_totals.sql: Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+SELECT Total, 
+Customer.FirstName as customerFirstName, 
+Customer.LastName as customerLastName, 
+BillingCountry, 
+Employee.FirstName, 
+Employee.LastName 
+FROM Invoice    
+JOIN Customer 
+    ON Customer.CustomerId = Invoice.CustomerId
+JOIN Employee 
+    ON Customer.SupportRepId = Employee.EmployeeId
+
+
+total_invoices_{year}.sql: How many Invoices were there in 2009 and 2011?
+SELECT
+	NumberOfInvoices,
+	InvoiceYear
+FROM
+	(SELECT
+		COUNT(i.InvoiceId) NumberOfInvoices,
+		strftime ('%Y', i.InvoiceDate) InvoiceYear
+	FROM Invoice i
+	GROUP BY InvoiceYear) AS Aggregate
+WHERE InvoiceYear IN ("2009", "2011") 
+    
+ 
+
 
 
