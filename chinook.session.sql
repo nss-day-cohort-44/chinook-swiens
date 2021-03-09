@@ -9,15 +9,15 @@
 -- WHERE Country IN ("Brazil")
 
 -- brazil_customers_invoices.sql: Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
-SELECT FirstName, LastName, InvoiceId, InvoiceDate, BillingCountry
-FROM Customer
-JOIN Invoice
-    ON Customer.CustomerId = Invoice.CustomerId
-WHERE BillingCountry IN ("Brazil")
+-- SELECT FirstName, LastName, InvoiceId, InvoiceDate, BillingCountry
+-- FROM Customer
+-- JOIN Invoice
+--     ON Customer.CustomerId = Invoice.CustomerId
+-- WHERE BillingCountry IN ("Brazil")
 
 -- sales_agents.sql: Provide a query showing only the Employees who are Sales Agents.
 SELECT FirstName
 FROM Employee
-WHERE Title LIKE ("Sales")
+WHERE Title LIKE "%Sales%"
 
 
